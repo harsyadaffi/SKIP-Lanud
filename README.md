@@ -1,2 +1,17 @@
 # SKIP-Lanud
-is a desktop-based, centralized personnel attendance and administrative information system designed for Lanud Atang Sendjaja, a base of the Indonesian Air Force (TNI AU).
+Is a desktop-based, centralized personnel attendance and administrative information system designed for Lanud Atang Sendjaja, a base of the Indonesian Air Force (TNI AU). Unlike a conventional fingerprint attendance terminal application, SIKP-Lanud is conceived as a full administrative backbone for the Personnel Office (Dispers), covering biometric attendance capture, personnel master data, leave/permission/sick-leave/official-duty administration, multi-level approval workflows, real-time executive dashboards, automated reporting, and system security/audit.
+The system replaces manual recap processes (typically done in spreadsheets), fragmented personnel records, paper-based leave approvals, and the absence of real-time visibility into unit-level attendance performance. It is built as a desktop application (recommended: Tauri + React) to satisfy government/institutional requirements around offline resilience, local network deployment, and controlled distribution, while retaining a modern, web-technology-based UI comparable to contemporary shadcn/ui-style dashboards.
+Attendance capture is intentionally limited to two events per working day — morning check-in and afternoon check-out — via fingerprint (primary) and optional face recognition (secondary/backup) devices installed at base entry points. The system does not perform indoor/continuous tracking; its function is administrative, not surveillance-oriented.
+This document defines the full product scope: functional and non-functional requirements for 20 system modules, database design (ERD, tables, constraints), REST API design, desktop application architecture, UI/UX design system with wireframes, reporting and export specifications, notification design, security/RBAC model, technology stack recommendation, coding standards, and a 6-month implementation roadmap. It is written to be directly actionable by a development team without further business clarification.
+All personnel, unit, and attendance data referenced as examples throughout this document (e.g., in dashboard mockups and sample datasets) are **fictional and illustrative only**. No classified, operational, or confidential information about Lanud Atang Sendjaja is included; institutional context is limited to publicly known organizational facts about TNI AU air base administrative structures in general.
+---
+
+## Product Vision
+
+**Vision Statement:**
+> "To become the single source of truth for personnel attendance and administrative status at Lanud Atang Sendjaja — giving every level of command, from Komandan Lanud to Operator Dispers, instant, accurate, and auditable visibility into who is present, who is on leave, who requires attention, and why — while eliminating manual recap work entirely."
+The system is designed around three pillars:
+1. **Accuracy** — attendance and administrative status data is captured once, at the source (biometric device or digital request form), and flows through the system without manual re-entry or reconciliation.
+2. **Visibility** — every stakeholder, from squadron commander to base commander, has a role-appropriate real-time view of attendance and administrative status, replacing the current lack of real-time dashboards.
+3. **Accountability** — every state change (approval, rejection, edit, login, export) is logged immutably, supporting both operational trust and compliance/audit requirements typical of a military institution.
+
